@@ -1,0 +1,29 @@
+name: Go Validator CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.21'
+
+    - name: Install dependencies
+      run: go mod tidy
+
+    - name: Build Validator
+      run: go build -o validator-bin ./validator/main.go
+
+    - name: Run Smoke Test
+      # Verifichiamo che il binario funzioni con una logica di base
+      run: ./validator-bin "1 + 1 == 2"
