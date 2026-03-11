@@ -13,7 +13,10 @@ func main() {
 		os.Exit(1)
 	}
 	expr := os.Args[1]
-	env, _ := cel.NewEnv(cel.Variable("request.auth.claims.exp", cel.IntType))
+	env, _ := cel.NewEnv(
+		cel.Variable("request.auth.claims.exp", cel.IntType),
+		cel.Variable("request.auth.claims.role", cel.StringType),
+	)
 
 	_, iss := env.Compile(expr)
 	if iss.Err() != nil {
