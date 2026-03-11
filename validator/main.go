@@ -16,6 +16,7 @@ func main() {
 	env, _ := cel.NewEnv(
 		cel.Variable("request.auth.claims.exp", cel.IntType),
 		cel.Variable("request.auth.claims.role", cel.StringType),
+		cel.Variable("request.auth.claims.email", cel.StringType),
 	)
 
 	_, iss := env.Compile(expr)
