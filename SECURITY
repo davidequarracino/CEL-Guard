@@ -1,0 +1,8 @@
+# Security Policy
+
+This project is a static logic validator. 
+
+## Safety Guarantees
+- Sandboxed Execution: All CEL expressions are evaluated in a restricted memory space.
+- No System Access: The engine cannot read your files, access your webcam, or connect to the internet.
+- Local Only: Everything stays on your machine and only performs mathematical/logical checks.
