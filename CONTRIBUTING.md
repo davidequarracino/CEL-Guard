@@ -7,4 +7,4 @@ Thank you for your interest in improving CEL-Guard. As a project focused on secu
 2. **Implement your CEL pattern** inside the `/patterns` directory using the Kubernetes `ValidatingAdmissionPolicy` YAML format.
 3. **Verify your expression** using the local Go validator:
    ```bash
-   go run validator/main.go "your_cel_expression_here"
+ go run validator/main.go "request.auth.claims.role == 'admin' && request.auth.claims.email.endsWith('@google.com')"
