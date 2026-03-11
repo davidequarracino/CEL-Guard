@@ -1,5 +1,7 @@
 # CEL-Guard
 
+![Go Validator CI](https://github.com/davidequarracino/CEL-Guard/actions/workflows/test.yml/badge.svg)
+
 A repository of validated **Common Expression Language (CEL)** patterns for Kubernetes Admission Control and Cloud-Native security policies.
 
 ## Project Structure
