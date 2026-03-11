@@ -17,8 +17,8 @@ func main() {
 		cel.Variable("request.auth.claims.exp", cel.IntType),
 		cel.Variable("request.auth.claims.role", cel.StringType),
 		cel.Variable("request.auth.claims.email", cel.StringType),
+		cel.Variable("request.auth.claims.username", cel.StringType),
 	)
-
 	_, iss := env.Compile(expr)
 	if iss.Err() != nil {
 		fmt.Printf("❌ ERRORE: %v\n", iss.Err())
